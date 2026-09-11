@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djr6106f37puj"]
+
+[ext_resource type="Texture2D" uid="uid://dmy81n5dfv6vf" path="res://level/texture/1k_Dissolve_Noise_Texture.png" id="1_8ovwh"]
+[ext_resource type="Texture2D" uid="uid://c5y8jnx4u4mxu" path="res://level/texture/images (3).jpg" id="2_erjvv"]
+
+[resource]
+albedo_color = Color(0.7405671, 0.74676424, 0.5881788, 1)
+roughness = 0.45
+roughness_texture = ExtResource("2_erjvv")
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("1_8ovwh")
+uv1_scale = Vector3(5.19, 5.19, 5.19)
+uv1_triplanar = true

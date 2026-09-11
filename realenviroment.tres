@@ -1,0 +1,11 @@
+[gd_resource type="Environment" format=3 uid="uid://brtkx1ed87hwj"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.83137256, 0.8745098, 0.9019608, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.12941177, 0.18431373, 0.19607843, 1)
+ambient_light_energy = 0.1
+ssao_enabled = true
+ssao_radius = 2.98
+ssao_intensity = 7.46

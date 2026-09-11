@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://csesohkxgngqw"]
+
+[ext_resource type="Texture2D" uid="uid://jbvo68mymwwn" path="res://note/2.jpg" id="1_0r6jt"]
+[ext_resource type="Script" uid="uid://dp25u63sg7x67" path="res://note/note.gd" id="1_cedww"]
+[ext_resource type="Script" uid="uid://csb3734j77u88" path="res://note/notear.gd" id="2_cedww"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyxcc"]
+albedo_texture = ExtResource("1_0r6jt")
+uv1_scale = Vector3(1.01, 1.01, 1.01)
+uv1_offset = Vector3(0.49, -0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_qp0p1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wqq1"]
+size = Vector3(0.47070313, 0.6743164, 0.03515625)
+
+[node name="note" type="Node3D" unique_id=1083689497]
+script = ExtResource("1_cedww")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=186213504]
+transform = Transform3D(0.46, 0, 0, 0, 0.66, 0, 0, 0, 0.025, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_lyxcc")
+mesh = SubResource("BoxMesh_qp0p1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=87825843]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1961516004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.007080078, 0)
+shape = SubResource("BoxShape3D_6wqq1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=17756945]
+script = ExtResource("2_cedww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=722401928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.007080078, 0)
+shape = SubResource("BoxShape3D_6wqq1")

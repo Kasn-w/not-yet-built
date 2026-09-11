@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ohsnqvlgvaxy"]
+
+[ext_resource type="Texture2D" uid="uid://cajom31xgp4h6" path="res://level/texture/wooden-texture_1194-5995.png" id="1_tlm2j"]
+
+[resource]
+albedo_color = Color(0.83867353, 0.33930725, 0, 1)
+albedo_texture = ExtResource("1_tlm2j")
+metallic = 1.0
+uv1_scale = Vector3(4.895, 4.895, 4.895)

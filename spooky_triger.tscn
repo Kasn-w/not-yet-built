@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ev2l85hkumqa"]
+
+[ext_resource type="Script" uid="uid://csqgt3bpfj54r" path="res://spooky_triger.gd" id="1_bekvp"]
+[ext_resource type="AudioStream" uid="uid://bqsd7ym76l4w8" path="res://audio/spooky_short.mp3" id="2_cod4u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cod4u"]
+
+[node name="spooky_triger" type="Area3D" unique_id=1129328682]
+script = ExtResource("1_bekvp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1890184783]
+shape = SubResource("BoxShape3D_cod4u")
+debug_color = Color(0.021001652, 1.6338394, 0, 1)
+
+[node name="sound" type="AudioStreamPlayer" parent="." unique_id=1533643475]
+stream = ExtResource("2_cod4u")
+volume_db = -3.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="sound" to="." method="_on_sound_finished"]

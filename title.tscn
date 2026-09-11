@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://cv4hswqkii3dq"]
+
+[ext_resource type="Script" uid="uid://rqjoghkx61q8" path="res://title.gd" id="1_0824t"]
+[ext_resource type="Environment" uid="uid://brtkx1ed87hwj" path="res://realenviroment.tres" id="1_oyqm6"]
+[ext_resource type="PackedScene" uid="uid://s2x0pnkytm0w" path="res://level/dinnig_h.tscn" id="1_y7k74"]
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="3_kpexm"]
+[ext_resource type="Texture2D" uid="uid://cn6icpvsuet84" path="res://title6.png" id="4_3xoar"]
+[ext_resource type="FontFile" uid="uid://dc711tg1iogke" path="res://level/Poppins-Bold.ttf" id="4_7lgly"]
+[ext_resource type="StyleBox" uid="uid://dddhfsfhc741k" path="res://setting_sty.tres" id="4_lx2ly"]
+[ext_resource type="Texture2D" uid="uid://daappqan7xvaj" path="res://58.jpg" id="4_nuqgq"]
+[ext_resource type="AudioStream" uid="uid://vwtt6um5jadi" path="res://audio/button_press.mp3" id="8_lx2ly"]
+
+[sub_resource type="Shader" id="Shader_7lgly"]
+code = "shader_type canvas_item;
+
+uniform float shake: hint_range(0, 10) = 0.015;
+uniform float noiseQuality: hint_range(0.1, 250, 0.1) = 250;
+uniform float noiseIntensity: hint_range(0, 0.05, 0.001) = 0.001;
+uniform float offsetIntensity: hint_range(0, 0.05, 0.0001) = 0.0045;
+uniform float colorOffsetIntensity: hint_range(0.1, 1.5, 0.001) = 0.2;
+uniform float pixelSize: hint_range(1, 1024) = 200.0;
+uniform float grainIntensity: hint_range(0, 1) = 0.04; // Intensity of film grain
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D overlay_texture : hint_default_transparent;
+uniform bool use_overlay = true; // Toggle for using overlay texture
+uniform bool use_lens_distortion = true; // Toggle for using lens distortion
+
+uniform vec4 overlay_color : source_color = vec4(1.0, 1.0, 1.0, 10.0); // Allow changing overlay color
+uniform float lens_distortion_strength: hint_range(0, 0.1) = 0.05; // Strength of lens distortion effect
+
+varying vec2 previous_pos; // Previous fragment position
+
+float rand(vec2 co)
+{
+    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+float verticalBar(float pos, float uvY, float offset)
+{
+    float edge0 = (pos - shake);
+    float edge1 = (pos + shake);
+
+    float x = smoothstep(edge0, pos, uvY) * offset;
+    x -= smoothstep(pos, edge1, uvY) * offset;
+    return x;
+}
+
+void fragment() {
+    vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
+    vec2 uv = FRAGCOORD.xy / iResolution.xy;
+
+    // Calculate velocity
+    vec2 velocity = uv - previous_pos;
+
+    // Apply pixelation effect
+    uv = floor(uv * pixelSize) / pixelSize;
+
+    // Add vertical bars distortion
+    for (float i = 0.0; i < 0.71; i += 0.1313)
+    {
+        float d = mod(TIME * i, 1.7);
+        float o = sin(1.0 - tan(TIME * 0.24 * i));
+        o *= offsetIntensity;
+        uv.x += verticalBar(d, uv.y, o);
+    }
+
+    // Add noise distortion
+    float uvY = uv.y * noiseQuality;
+    uvY = float(int(uvY)) * (1.0 / noiseQuality);
+    float noise = rand(vec2(TIME * 0.00001, uvY));
+    uv.x += noise * noiseIntensity;
+
+    // Add color offset distortion
+    vec2 offsetR = vec2(0.006 * sin(TIME), 0.0) * colorOffsetIntensity;
+    vec2 offsetG = vec2(0.0073 * cos(TIME * 0.97), 0.0) * colorOffsetIntensity;
+
+    float r = texture(screen_texture, uv + offsetR).r;
+    float g = texture(screen_texture, uv + offsetG).g;
+    float b = texture(screen_texture, uv).b;
+
+    vec4 tex = vec4(r, g, b, 1.0);
+
+    // Overlay with an optional texture
+    if (use_overlay) {
+        vec4 overlayColor = texture(overlay_texture, uv) * overlay_color; // Apply overlay color
+        tex = mix(tex, overlayColor, overlayColor.a);
+    }
+
+    // Add film grain
+    float grain = rand(uv) * 2.0 - 1.0; // Range from -1 to 1
+    tex.rgb += grainIntensity * grain;
+
+    // Apply lens distortion
+    if (use_lens_distortion) {
+        vec2 distortion = uv * lens_distortion_strength * (uv - 1.0);
+        vec4 distorted_tex = texture(screen_texture, uv + distortion);
+        tex = mix(tex, distorted_tex, 0.5);
+    }
+
+    // Apply final color
+	tex.a *= COLOR.a;
+    COLOR = tex;
+
+    // Store current position for next frame
+    previous_pos = FRAGCOORD.xy / iResolution.xy;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuqgq"]
+shader = SubResource("Shader_7lgly")
+shader_parameter/shake = 0.0
+shader_parameter/noiseQuality = 14.80000022053776
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.00209999994687
+shader_parameter/colorOffsetIntensity = 0.10000000149012
+shader_parameter/pixelSize = 600.0000284525
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(0.83975405, 0.8397541, 0.8397539, 1)
+shader_parameter/lens_distortion_strength = 0.00800000038
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx2ly"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.12298488, 0.12298488, 0.12298488, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.049954697, 0.24670535, 0.3778365, 0.80784315)
+shadow_size = 1
+shadow_offset = Vector2(0, 1.24)
+anti_aliasing_size = 0.387
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuqgq"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.12298488, 0.12298488, 0.12298488, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.050980393, 0.24705882, 0.3764706, 0.80784315)
+shadow_size = 1
+shadow_offset = Vector2(0, 1.24)
+anti_aliasing_size = 0.387
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0824t"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.22094142, 0.22094142, 0.2209414, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.49819648, 0.75889236, 0.96297354, 0.80784315)
+shadow_size = 1
+shadow_offset = Vector2(0, 1.24)
+anti_aliasing_size = 0.387
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jil77"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_nuqgq"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7lgly"]
+gradient = SubResource("Gradient_nuqgq")
+
+[sub_resource type="Gradient" id="Gradient_lx2ly"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jil77"]
+gradient = SubResource("Gradient_lx2ly")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lx2ly"]
+font = ExtResource("3_kpexm")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="title" type="Node3D" unique_id=11551633]
+script = ExtResource("1_0824t")
+
+[node name="Control" type="Control" parent="." unique_id=841289259]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2052399597]
+material = SubResource("ShaderMaterial_nuqgq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1120.0
+offset_bottom = 614.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1216084189]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 76.0
+offset_right = 479.34787
+offset_bottom = 311.0
+texture = ExtResource("4_3xoar")
+
+[node name="play" type="Button" parent="Control" unique_id=300023282]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 398.0
+offset_right = 262.14282
+offset_bottom = 434.50793
+scale = Vector2(2.52, 2.52)
+theme_override_fonts/font = ExtResource("4_7lgly")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_lx2ly")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nuqgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0824t")
+text = "Begin"
+
+[node name="Button" type="Button" parent="Control" unique_id=102117757]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 565.0
+offset_right = 1140.0
+offset_bottom = 620.0
+theme_override_styles/normal = ExtResource("4_lx2ly")
+theme_override_styles/pressed = ExtResource("4_lx2ly")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil77")
+icon = ExtResource("4_nuqgq")
+
+[node name="dark" type="TextureRect" parent="Control" unique_id=630703839]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 653.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_7lgly")
+
+[node name="white" type="TextureRect" parent="Control" unique_id=1525544850]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 653.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_jil77")
+
+[node name="crea" type="Label" parent="Control" unique_id=1569708075]
+layout_mode = 0
+offset_left = 1099.0
+offset_top = 629.0
+offset_right = 1141.0
+offset_bottom = 639.0
+text = "by OKasn"
+label_settings = SubResource("LabelSettings_lx2ly")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=326512625]
+transform = Transform3D(-0.3432326, -0.5036921, 0.79277074, -0.13027725, 0.8614182, 0.4909037, -0.9301716, 0.06521416, -0.3612864, 0, 6.6906714, 0)
+light_color = Color(0.94165456, 0.9610042, 0.9777532, 1)
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=980839332]
+environment = ExtResource("1_oyqm6")
+
+[node name="dinnigH" parent="." unique_id=711553932 instance=ExtResource("1_y7k74")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=126732859]
+transform = Transform3D(-0.24699903, -0.33935645, -0.9076501, 0, 0.9366722, -0.35020736, 0.9690157, -0.08650088, -0.23135714, -15.650976, 2.8446465, -47.76722)
+
+[node name="num_pre" type="AudioStreamPlayer" parent="." unique_id=1445046159]
+stream = ExtResource("8_lx2ly")
+volume_db = -13.0
+
+[connection signal="pressed" from="Control/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

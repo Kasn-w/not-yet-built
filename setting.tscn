@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://bb01lkrokclce"]
+
+[ext_resource type="Script" uid="uid://d0deqb3cnijtf" path="res://cdsetting.gd" id="1_q554q"]
+[ext_resource type="Script" uid="uid://b1gf1wln4efbh" path="res://item/displaynoise.gd" id="1_sj44r"]
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="2_vtcyg"]
+[ext_resource type="StyleBox" uid="uid://3r0w81fskxxt" path="res://slider_th.tres" id="4_4ynqn"]
+[ext_resource type="StyleBox" uid="uid://bcfxopn0w11wu" path="res://checkbox.tres" id="5_sj44r"]
+[ext_resource type="StyleBox" uid="uid://bc2l6p0c80qyf" path="res://level/flat_btcr.tres" id="6_fguwx"]
+[ext_resource type="Texture2D" uid="uid://2d33uuadknts" path="res://Untitled-1.png" id="6_sj44r"]
+[ext_resource type="AudioStream" uid="uid://vwtt6um5jadi" path="res://audio/button_press.mp3" id="7_jftqs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pve7n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_62e02"]
+noise = SubResource("FastNoiseLite_pve7n")
+
+[sub_resource type="Gradient" id="Gradient_idiha"]
+offsets = PackedFloat32Array(0.16586539, 0.5745192)
+colors = PackedColorArray(0.23921569, 0.23921569, 0.23921569, 0, 0.23826203, 0.23826227, 0.23826212, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0b1ha"]
+gradient = SubResource("Gradient_idiha")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31qus"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.42745098)
+shadow_size = 5
+shadow_offset = Vector2(0, 6.245)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mt8i"]
+font = ExtResource("2_vtcyg")
+font_size = 100
+font_color = Color(0.855535, 0.84337485, 0.84471315, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q554q"]
+font = ExtResource("2_vtcyg")
+font_size = 40
+font_color = Color(0.855535, 0.84337485, 0.84471315, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feyms"]
+bg_color = Color(0.6556251, 1.0023229e-05, 0.10590126, 0.9098039)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 1
+shadow_offset = Vector2(0, 1.725)
+anti_aliasing_size = 1.045
+
+[node name="setting" type="Control" unique_id=1161074307]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q554q")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=964946793]
+modulate = Color(1, 1, 1, 0.08627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_62e02")
+script = ExtResource("1_sj44r")
+
+[node name="gra" type="TextureRect" parent="." unique_id=1937368358]
+layout_mode = 0
+offset_left = -444.0
+offset_top = -30.0
+offset_right = 1174.0
+offset_bottom = 662.0
+texture = SubResource("GradientTexture2D_0b1ha")
+
+[node name="Panel" type="Panel" parent="." unique_id=1659863942]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 50.0
+offset_right = 1089.0
+offset_bottom = 601.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_31qus")
+
+[node name="label" type="Label" parent="." unique_id=1987674480]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 100.0
+offset_right = 1045.0
+offset_bottom = 177.0
+text = "SETTING"
+label_settings = SubResource("LabelSettings_4mt8i")
+horizontal_alignment = 1
+
+[node name="volume" type="Label" parent="." unique_id=1571572099]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 219.0
+offset_right = 658.0
+offset_bottom = 250.0
+text = "volume :"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="bright" type="Label" parent="." unique_id=1020897078]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 291.0
+offset_right = 676.0
+offset_bottom = 322.0
+text = "brightness :"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="disvol" type="Label" parent="." unique_id=1250803193]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 219.0
+offset_right = 1065.0
+offset_bottom = 250.0
+text = "0000"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="dissen" type="Label" parent="." unique_id=317996699]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 359.0
+offset_right = 1069.0
+offset_bottom = 390.0
+text = "000"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="disbright" type="Label" parent="." unique_id=919860733]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 295.0
+offset_right = 1069.0
+offset_bottom = 326.0
+text = "000"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="sen" type="Label" parent="." unique_id=1604289376]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 359.0
+offset_right = 694.0
+offset_bottom = 390.0
+text = "sensitive :"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="invert" type="Label" parent="." unique_id=2112410439]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 434.0
+offset_right = 694.0
+offset_bottom = 465.0
+text = "invert Y :"
+label_settings = SubResource("LabelSettings_q554q")
+
+[node name="volslider" type="HSlider" parent="." unique_id=1439401926]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 219.0
+offset_right = 975.0
+offset_bottom = 235.0
+theme_override_styles/grabber_area = ExtResource("4_4ynqn")
+min_value = -20.0
+max_value = 10.0
+step = 0.5
+tick_count = 10
+ticks_position = 3
+
+[node name="senslider" type="HSlider" parent="." unique_id=519739876]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 359.0
+offset_right = 995.0
+offset_bottom = 375.0
+theme_override_styles/grabber_area = ExtResource("4_4ynqn")
+max_value = 1.0
+step = 0.01
+value = 0.2
+tick_count = 10
+ticks_position = 3
+
+[node name="brightslider" type="HSlider" parent="." unique_id=1131967719]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 295.0
+offset_right = 988.0
+offset_bottom = 311.0
+theme_override_styles/grabber_area = ExtResource("4_4ynqn")
+max_value = 1.0
+step = 0.01
+value = 0.2
+tick_count = 10
+ticks_position = 3
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=703656215]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 428.0
+offset_right = 733.0
+offset_bottom = 460.0
+theme_override_styles/normal = ExtResource("5_sj44r")
+theme_override_styles/pressed = ExtResource("5_sj44r")
+theme_override_styles/pressed_mirrored = ExtResource("5_sj44r")
+theme_override_styles/hover = ExtResource("5_sj44r")
+theme_override_styles/hover_pressed = ExtResource("5_sj44r")
+theme_override_icons/checked = ExtResource("6_sj44r")
+
+[node name="X" type="Button" parent="." unique_id=524062972]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 535.0
+offset_right = 1039.6667
+offset_bottom = 558.0
+scale = Vector2(2, 2)
+theme_override_styles/normal = ExtResource("6_fguwx")
+theme_override_styles/pressed = ExtResource("6_fguwx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_feyms")
+text = "X"
+
+[node name="num_pre" type="AudioStreamPlayer" parent="." unique_id=1255458033]
+stream = ExtResource("7_jftqs")
+volume_db = -13.0
+
+[connection signal="drag_ended" from="volslider" to="." method="_on_volslider_drag_ended"]
+[connection signal="drag_ended" from="senslider" to="." method="_on_senslider_drag_ended"]
+[connection signal="drag_ended" from="brightslider" to="." method="_on_brightslider_drag_ended"]
+[connection signal="pressed" from="CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="X" to="." method="_on_x_pressed"]

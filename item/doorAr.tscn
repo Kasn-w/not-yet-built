@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2q67n748srpw"]
+
+[ext_resource type="Script" uid="uid://3tx3cjo4vo7" path="res://item/door.gd" id="1_gxxfs"]
+[ext_resource type="AudioStream" uid="uid://cl7irye8bn7hr" path="res://audio/door_op.mp3" id="2_oomxy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6t40p"]
+
+[node name="doorAR" type="Area3D" unique_id=2003009684]
+script = ExtResource("1_gxxfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=738266383]
+shape = SubResource("BoxShape3D_6t40p")
+
+[node name="opendd" type="AudioStreamPlayer3D" parent="." unique_id=352923526]
+stream = ExtResource("2_oomxy")
+volume_db = -9.0

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cjdayqki4ppcj"]
+
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="1_6wcnj"]
+[ext_resource type="Script" uid="uid://dwf67dusy62l0" path="res://item/itemmesh.gd" id="1_284wa"]
+[ext_resource type="PackedScene" uid="uid://b1eoyy33bygwl" path="res://item/item.tscn" id="3_hop4p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_684sw"]
+albedo_color = Color(0.15657884, 0.00014496982, 0.46824127, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_284wa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hop4p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1lgk"]
+
+[sub_resource type="TextMesh" id="TextMesh_a5kxn"]
+text = "P"
+font = ExtResource("1_6wcnj")
+
+[node name="keycard" type="Node3D" unique_id=129609368]
+script = ExtResource("1_284wa")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1044046908]
+transform = Transform3D(0.01, 0, 0, 0, 0.23, 0, 0, 0, 0.155, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_684sw")
+mesh = SubResource("BoxMesh_284wa")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=2051274765]
+transform = Transform3D(0.011, 0, 0, 0, 0.01, 0, 0, 0, 0.156, 0, 0.060924605, 0)
+material_override = SubResource("StandardMaterial3D_hop4p")
+mesh = SubResource("BoxMesh_284wa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=444796669]
+transform = Transform3D(-2.7975288e-08, 0, 0.24, 0, 0.64, 0, -0.64, 0, -1.0490733e-08, 0, -0.0774962, -0.03834618)
+material_override = SubResource("StandardMaterial3D_u1lgk")
+mesh = SubResource("TextMesh_a5kxn")
+
+[node name="item" parent="." unique_id=2003009684 instance=ExtResource("3_hop4p")]
+transform = Transform3D(0.025, 0, 0, 0, -0.245, 0, 0, 0, 0.165, 0, 0, 0)
+nam = "Keycard"
+des = "your own keycard. use to open your bedroom door...\\nThat's it."
+pic = "res://item/keycard.png"

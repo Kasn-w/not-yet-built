@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bmef1ngpdmxbl"]
+
+[ext_resource type="Script" uid="uid://dc3wr0k1tgco" path="res://radio.gd" id="1_bmsdt"]
+[ext_resource type="AudioStream" uid="uid://bd77hl73wcccp" path="res://audio/radio/test_dia.mp3" id="1_omv6i"]
+[ext_resource type="AudioStream" uid="uid://vs6sbh553kuy" path="res://audio/radio/noise.mp3" id="3_c3x58"]
+
+[node name="radio" type="AudioStreamPlayer" unique_id=1710809505]
+stream = ExtResource("1_omv6i")
+script = ExtResource("1_bmsdt")
+
+[node name="noise" type="AudioStreamPlayer" parent="." unique_id=741369811]
+stream = ExtResource("3_c3x58")
+volume_db = -80.0
+
+[connection signal="finished" from="." to="." method="_on_finished"]

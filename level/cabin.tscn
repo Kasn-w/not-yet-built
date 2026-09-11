@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1kel631vn53l"]
+
+[ext_resource type="Texture2D" uid="uid://2xc6fskbdtu5" path="res://level/texture/istockphoto-589459062-612x612.jpg" id="1_11s7c"]
+[ext_resource type="Texture2D" uid="uid://cajom31xgp4h6" path="res://level/texture/wooden-texture_1194-5995.png" id="2_7ivxi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcbeb"]
+albedo_texture = ExtResource("1_11s7c")
+uv1_scale = Vector3(1.21, 1.21, 1.21)
+uv1_offset = Vector3(0, 1.54, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_11s7c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11s7c"]
+size = Vector3(3.288086, 1.2077637, 0.80493164)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8mhb"]
+albedo_color = Color(0.26943126, 0.14232212, 0.010217821, 1)
+albedo_texture = ExtResource("2_7ivxi")
+roughness = 0.85
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_v28tr"]
+
+[node name="cabin" type="Node3D" unique_id=815102506]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=402267748]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=211575308]
+transform = Transform3D(3.0699997, 0, 0, 0, 1.0599998, 0, -1.4210855e-14, 0, 0.61999995, 0, 0.4838612, -0.32848918)
+material_override = SubResource("StandardMaterial3D_lcbeb")
+mesh = SubResource("BoxMesh_11s7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=450175361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011230469, 0.46398926, -0.38024902)
+shape = SubResource("BoxShape3D_11s7c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=1465599617]
+transform = Transform3D(0.1, 0, 0, 0, 1.145, 0, 0, 0, 0.75, -1.5579935, 0.4490062, -0.3913225)
+material_override = SubResource("StandardMaterial3D_v8mhb")
+mesh = SubResource("BoxMesh_v28tr")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D" unique_id=2067716968]
+transform = Transform3D(-4.371139e-09, 3.285, 0, -0.1, -1.4359192e-07, 0, 0, 0, 0.75, -0.010004759, 0.99925387, -0.3913225)
+material_override = SubResource("StandardMaterial3D_v8mhb")
+mesh = SubResource("BoxMesh_v28tr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=103529456]
+transform = Transform3D(0.1, 0, 0, 0, 1.145, 0, 0, 0, 0.75, 1.5595986, 0.4490062, -0.3913225)
+material_override = SubResource("StandardMaterial3D_v8mhb")
+mesh = SubResource("BoxMesh_v28tr")

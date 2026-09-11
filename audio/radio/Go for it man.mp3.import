@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn3r5328wmrmy"
+path="res://.godot/imported/Go for it man.mp3-0c4c4228c7ae493682b3c1cf06bff8c9.mp3str"
+
+[deps]
+
+source_file="res://audio/radio/Go for it man.mp3"
+dest_files=["res://.godot/imported/Go for it man.mp3-0c4c4228c7ae493682b3c1cf06bff8c9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cr8b2fbjyrama"]
+
+[ext_resource type="Texture2D" uid="uid://bt3aeqcxrjcq7" path="res://level/texture/Carpet0012_1_350.jpg" id="1_n5ii6"]
+[ext_resource type="Texture2D" uid="uid://bnir8xa1otbso" path="res://level/texture/Carpetnormal.jpg" id="2_skn48"]
+
+[resource]
+albedo_color = Color(0.5836486, 0.60349405, 0.6942557, 1)
+albedo_texture = ExtResource("1_n5ii6")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_skn48")
+uv1_scale = Vector3(7.93, 7.93, 7.93)
+uv1_triplanar = true

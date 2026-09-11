@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://brtb72fa74qxi"]
+
+[ext_resource type="Script" uid="uid://dwf67dusy62l0" path="res://item/itemmesh.gd" id="1_lt5ra"]
+[ext_resource type="Texture2D" uid="uid://cbjxamcu7mc5" path="res://item/mapf.png" id="2_8j3xt"]
+[ext_resource type="PackedScene" uid="uid://b1eoyy33bygwl" path="res://item/item.tscn" id="4_2r4hp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugun0"]
+transparency = 1
+albedo_color = Color(0.84313726, 0.8156863, 0.7647059, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cn68e"]
+
+[node name="map" type="Node3D" unique_id=101799395]
+script = ExtResource("1_lt5ra")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1732846202]
+transform = Transform3D(1.185, 0, 0, 0, 1.06, 0, 0, 0, 0.025, -0.012381911, 0.036308408, 0.004528284)
+material_override = SubResource("StandardMaterial3D_ugun0")
+mesh = SubResource("BoxMesh_cn68e")
+
+[node name="mapsp" type="Sprite3D" parent="MeshInstance3D2" unique_id=929199490]
+transform = Transform3D(-0.19831225, 0, -2.9944317e-08, 0, 0.22169812, 0, 1.4193606e-06, 0, -9.399999, 0, -0.0011785999, -0.9198093)
+shaded = true
+texture = ExtResource("2_8j3xt")
+
+[node name="item" parent="." unique_id=2003009684 instance=ExtResource("4_2r4hp")]
+transform = Transform3D(1.24, 0, 0, 0, 1.09, 0, 0, 0, 0.07, 0, 0.037403762, 0)
+nam = "Building Map"
+des = "your number one most reliable friend.\\nThis is the entire map of this research station, and is up-to-date as of 24 September 2026.\\nPress E to look"
+pic = "res://item/mapit.png"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bs8hmu158w5vy"]
+
+[ext_resource type="Script" uid="uid://b2np2mrwmv482" path="res://level/nonozone.gd" id="1_7j7se"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmga8"]
+
+[node name="NONOZONE" type="Area3D" unique_id=852627925]
+script = ExtResource("1_7j7se")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1939525749]
+shape = SubResource("BoxShape3D_xmga8")
+debug_color = Color(18.892157, 0, 0, 1)

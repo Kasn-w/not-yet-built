@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://7ijmwaypcaqu"]
+
+[ext_resource type="Script" uid="uid://q06k07ugaktr" path="res://end.gd" id="1_egc6y"]
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="1_n735c"]
+
+[sub_resource type="Gradient" id="Gradient_32hag"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_egc6y"]
+gradient = SubResource("Gradient_32hag")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lt2ag"]
+font = ExtResource("1_n735c")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="End" type="Control" unique_id=40793846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egc6y")
+
+[node name="white" type="TextureRect" parent="." unique_id=648071745]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 653.0
+texture = SubResource("GradientTexture1D_egc6y")
+
+[node name="thank" type="Label" parent="." unique_id=569162967]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.5
+offset_top = -38.5
+offset_right = 410.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing"
+label_settings = SubResource("LabelSettings_lt2ag")
+
+[node name="Timer" type="Timer" parent="." unique_id=786228381]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dripi6kxfhyug"]
+
+[ext_resource type="Script" uid="uid://ds3bcfail4lug" path="res://level/computer.gd" id="1_08enn"]
+[ext_resource type="Texture2D" uid="uid://bc5ueiy8ilo6h" path="res://level/texture/scren.jpg" id="1_vhfiq"]
+[ext_resource type="Material" uid="uid://rwas1abenmsi" path="res://level/mat/computersc.tres" id="2_5pr3f"]
+[ext_resource type="Texture2D" uid="uid://c4vcknvvcajme" path="res://level/texture/Screenshot 2026-08-27 233051.png" id="3_08enn"]
+[ext_resource type="PackedScene" uid="uid://bat3q70pea7rv" path="res://level/keypadar.tscn" id="5_bemi5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bemi5"]
+albedo_texture = ExtResource("1_vhfiq")
+uv1_scale = Vector3(0.695, 0.785, 0.93)
+uv1_offset = Vector3(0.525, 0.525, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_l0bt4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kfvqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vin3"]
+albedo_color = Color(0.5372549, 0.53333336, 0.49411765, 1)
+albedo_texture = ExtResource("3_08enn")
+uv1_scale = Vector3(1.01, 1.345, 1.215)
+uv1_offset = Vector3(0.495, 0, -0.49)
+uv1_triplanar = true
+
+[node name="computer" type="Node3D" unique_id=1643674087]
+script = ExtResource("1_08enn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=362274617]
+transform = Transform3D(2.015, 0, 0, 0, 1.68, 0, 0, 0, 0.92, 0, 1.224222, 0)
+material_override = SubResource("StandardMaterial3D_bemi5")
+mesh = SubResource("BoxMesh_l0bt4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1946600865]
+transform = Transform3D(2.07, 0, 0, 0, 1.685, 0, 0, 0, 1, 0, 1.2234658, -0.05049777)
+material_override = ExtResource("2_5pr3f")
+mesh = SubResource("BoxMesh_kfvqj")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1097147802]
+transform = Transform3D(2.135, 0, 0, 0, 0.4, 0, 0, 0, 1.945, 0, 0.23156416, 0.51167154)
+material_override = ExtResource("2_5pr3f")
+mesh = SubResource("BoxMesh_kfvqj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1433488286]
+transform = Transform3D(2.07, 0, 0, 0, 0.085, 0, 0, 0, 1.1, 0, 0.3893633, 0.9164462)
+material_override = SubResource("StandardMaterial3D_6vin3")
+mesh = SubResource("BoxMesh_kfvqj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=965382174]
+transform = Transform3D(1.667, 0, 0, 0, 1.356, 0, 0, 0, 0.805, 0, 1.2234658, -0.5498514)
+material_override = ExtResource("2_5pr3f")
+mesh = SubResource("BoxMesh_kfvqj")
+
+[node name="keyar" parent="." unique_id=2003009684 instance=ExtResource("5_bemi5")]
+transform = Transform3D(2.27, 0, 0, 0, 2.355, 0, 0, 0, 2.475, 0, 1.00438, 0.3000095)

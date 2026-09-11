@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ccn45sh05e5k8"]
+
+[ext_resource type="Texture2D" uid="uid://dmy81n5dfv6vf" path="res://level/texture/1k_Dissolve_Noise_Texture.png" id="1_f20o7"]
+
+[resource]
+metallic = 0.53
+metallic_specular = 0.2
+roughness = 0.63
+normal_enabled = true
+normal_scale = 0.05
+normal_texture = ExtResource("1_f20o7")
+uv1_triplanar = true

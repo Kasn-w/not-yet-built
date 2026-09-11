@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dk01av8vbiqw2"]
+
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="1_4cmms"]
+[ext_resource type="Texture2D" uid="uid://bmerchgp2af02" path="res://level/texture/images (1).jpg" id="1_hfrol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drqts"]
+albedo_color = Color(0.41803318, 0.31137818, 0, 1)
+albedo_texture = ExtResource("1_hfrol")
+uv1_scale = Vector3(-2.545, -2.545, -2.545)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1urr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfrol"]
+
+[sub_resource type="TextMesh" id="TextMesh_sa2uw"]
+text = "STORAGE"
+font = ExtResource("1_4cmms")
+font_size = 25
+depth = 0.655
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1110237925]
+transform = Transform3D(1, 0, 0, 0, 0.32, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_drqts")
+mesh = SubResource("BoxMesh_h1urr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1672405233]
+transform = Transform3D(-0.97, 0, 1.509958e-07, 0, 3.455, 0, -1.4646594e-07, 0, -1, 0, -0.086574614, -0.49521852)
+material_override = SubResource("StandardMaterial3D_hfrol")
+mesh = SubResource("TextMesh_sa2uw")

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dagc4ph4jhc4c"]
+
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="1_pve7n"]
+[ext_resource type="Script" uid="uid://cg6tht4mikrei" path="res://item/displayitem.gd" id="1_umosg"]
+[ext_resource type="Script" uid="uid://b1gf1wln4efbh" path="res://item/displaynoise.gd" id="2_qpxti"]
+[ext_resource type="Texture2D" uid="uid://clkjbi4c3yaub" path="res://player/dot4.png" id="4_umosg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pve7n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qpxti"]
+noise = SubResource("FastNoiseLite_pve7n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpxti"]
+font = ExtResource("1_pve7n")
+font_size = 100
+outline_size = 40
+outline_color = Color(0, 0, 0, 0.7176471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6shiv"]
+font = ExtResource("1_pve7n")
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umosg"]
+font = ExtResource("1_pve7n")
+font_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=239824661]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_umosg")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=117697660]
+modulate = Color(0.5194127, 0.5194127, 0.5194127, 0.09411765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_qpxti")
+script = ExtResource("2_qpxti")
+
+[node name="name" type="Label" parent="." unique_id=70835762]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.24691358
+anchor_right = 0.49913195
+anchor_bottom = 0.36574075
+text = "NAME"
+label_settings = SubResource("LabelSettings_qpxti")
+metadata/_edit_use_anchors_ = true
+
+[node name="des" type="Label" parent="." unique_id=1432463227]
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 0
+anchor_left = 0.19878472
+anchor_top = 0.43055555
+anchor_right = 0.6067708
+anchor_bottom = 0.8055556
+text = "des"
+label_settings = SubResource("LabelSettings_6shiv")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="click" type="Label" parent="." unique_id=159529942]
+modulate = Color(1, 1, 1, 0.29411766)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -50.0
+offset_right = 93.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "click any where"
+label_settings = SubResource("LabelSettings_umosg")
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=252462846]
+custom_minimum_size = Vector2(316, 316)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6024306
+anchor_top = 0.3580247
+anchor_right = 0.9027778
+anchor_bottom = 0.8919753
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_umosg")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true

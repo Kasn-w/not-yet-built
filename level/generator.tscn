@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c26uulgykts28"]
+
+[ext_resource type="Script" uid="uid://baflengxox54t" path="res://level/generator.gd" id="1_0mtvr"]
+[ext_resource type="Texture2D" uid="uid://ll7gmdvidgn1" path="res://level/texture/gen3.png" id="1_seug5"]
+[ext_resource type="Texture2D" uid="uid://d33g5gv2s837y" path="res://level/texture/gen2.png" id="2_vfe3b"]
+[ext_resource type="Script" uid="uid://3tx3cjo4vo7" path="res://item/door.gd" id="4_w7c6o"]
+[ext_resource type="AudioStream" uid="uid://bvo7ruspskkvv" path="res://audio/gen_start.mp3" id="5_oaxg7"]
+[ext_resource type="AudioStream" uid="uid://ciebbyojn52ut" path="res://audio/gen_loop.mp3" id="6_7d5ni"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mtvr"]
+albedo_texture = ExtResource("1_seug5")
+metallic = 0.57
+metallic_specular = 0.34
+roughness = 0.4
+normal_scale = 3.53
+normal_texture = ExtResource("2_vfe3b")
+uv1_scale = Vector3(0.93, 0.93, 0.93)
+uv1_offset = Vector3(-0.525, 0.485, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6nllk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7c6o"]
+size = Vector3(8.30481, 3.380127, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6t40p"]
+
+[node name="generator" type="Node3D" unique_id=1910747978]
+script = ExtResource("1_0mtvr")
+
+[node name="gen" type="StaticBody3D" parent="." unique_id=703624487]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gen" unique_id=1634793073]
+transform = Transform3D(8.255, 0, 0, 0, 3.345, 0, 0, 0, 1, 0, 1.738323, 0)
+material_override = SubResource("StandardMaterial3D_0mtvr")
+mesh = SubResource("BoxMesh_6nllk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gen" unique_id=356084647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1.7020264, 0)
+shape = SubResource("BoxShape3D_w7c6o")
+
+[node name="doorAR" type="Area3D" parent="." unique_id=2003009684]
+transform = Transform3D(8.605, 0, 0, 0, 3.49, 0, 0, 0, 1.275, 0, 1.8107533, 0)
+script = ExtResource("4_w7c6o")
+enable = true
+des = "GEN"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorAR" unique_id=738266383]
+shape = SubResource("BoxShape3D_6t40p")
+
+[node name="opendd" type="AudioStreamPlayer3D" parent="doorAR" unique_id=352923526]
+stream = ExtResource("5_oaxg7")
+
+[node name="gen_power" type="AudioStreamPlayer3D" parent="." unique_id=196064943]
+stream = ExtResource("6_7d5ni")

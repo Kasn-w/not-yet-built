@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bvsu82t02d2o2"]
+
+[ext_resource type="Script" uid="uid://dwf67dusy62l0" path="res://item/itemmesh.gd" id="1_41fy4"]
+[ext_resource type="Material" uid="uid://cgs6yyfqhvbmx" path="res://level/mat/flashlight.tres" id="1_vs5l1"]
+[ext_resource type="Material" uid="uid://ddlbqjn1qb7no" path="res://level/mat/flashlight2.tres" id="2_xa3u1"]
+[ext_resource type="PackedScene" uid="uid://b1eoyy33bygwl" path="res://item/item.tscn" id="3_xa3u1"]
+[ext_resource type="Script" uid="uid://d03gpwluii70v" path="res://item/flashme.gd" id="4_4bw4g"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41fy4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4bw4g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n30p"]
+albedo_color = Color(6.892094, 6.892094, 6.892094, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r3ide"]
+top_radius = 0.8
+
+[node name="flashlight" type="Node3D" unique_id=129609368]
+script = ExtResource("1_41fy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=150371591]
+transform = Transform3D(-6.5567085e-09, 0.2, 0, -0.15, -8.742278e-09, 0, 0, 0, 0.15, -0.122173786, -0.010742903, -0.00017690659)
+material_override = ExtResource("1_vs5l1")
+mesh = SubResource("CylinderMesh_41fy4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1362084372]
+transform = Transform3D(-1.0490733e-08, 0.04, 0, -0.24, -1.7484555e-09, 0, 0, 0, 0.24, 0.17774871, -0.010742903, -0.00017690659)
+material_override = ExtResource("2_xa3u1")
+mesh = SubResource("CylinderMesh_4bw4g")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=308080332]
+transform = Transform3D(-6.993822e-09, 0.04, 0, -0.16, -1.7484555e-09, 0, 0, 0, 0.16, -0.3404737, -0.010742903, -0.00017690659)
+material_override = ExtResource("2_xa3u1")
+mesh = SubResource("CylinderMesh_4bw4g")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1103905778]
+transform = Transform3D(-8.742278e-09, 0.04, 0, -0.2, -1.7484555e-09, 0, 0, 0, 0.2, 0.1810908, -0.010742903, -0.00017690659)
+material_override = SubResource("StandardMaterial3D_5n30p")
+mesh = SubResource("CylinderMesh_4bw4g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=911123352]
+transform = Transform3D(-6.5567085e-09, 0.04, 0, -0.15, -1.7484555e-09, 0, 0, 0, 0.15, 0.10155085, -0.010742903, -0.00017690659)
+material_override = ExtResource("2_xa3u1")
+mesh = SubResource("CylinderMesh_r3ide")
+
+[node name="flashlight" type="SpotLight3D" parent="." unique_id=932672883]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.22037554, 0, 0)
+light_color = Color(0.60284287, 0.602843, 0.60284287, 1)
+light_size = 1.0
+spot_range = 12.703492
+spot_angle = 47.48435
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1354265675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07982826, 0.16298887, 0)
+omni_range = 0.2692387
+script = ExtResource("4_4bw4g")
+
+[node name="item" parent="." unique_id=2003009684 instance=ExtResource("3_xa3u1")]
+transform = Transform3D(0.62, 0, 0, 0, 0.27, 0, 0, 0, 0.25, -0.08111143, 0, 0)
+nam = "Flashlight"
+des = "this handheld technology have been engineer to dismantle the darkness in a localized area\\nPress F to toggle On or Off"
+pic = "res://item/flashlight.png"

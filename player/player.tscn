@@ -1,0 +1,354 @@
+[gd_scene format=3 uid="uid://pkslb3syk2ni"]
+
+[ext_resource type="Script" uid="uid://c86kqyjre8h33" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Shader" uid="uid://crfqrnaj080pa" path="res://player/outline.gdshader" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://bdjd8alahjyfg" path="res://player/2.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://clkjbi4c3yaub" path="res://player/dot4.png" id="4_yw30f"]
+[ext_resource type="FontFile" uid="uid://7dvt35wrmh7b" path="res://level/supermarket.ttf" id="5_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://qqxmetx0d7dq" path="res://audio/walk/walk_loop.mp3" id="6_boad6"]
+[ext_resource type="Script" uid="uid://d25xo1upqmh0f" path="res://player/audio.gd" id="7_boad6"]
+[ext_resource type="AudioStream" uid="uid://gfyjqr2oc7jy" path="res://audio/walk/run_loop.mp3" id="8_rgyib"]
+[ext_resource type="AudioStream" uid="uid://khkh8n7cys7d" path="res://audio/flashlight_toggle.mp3" id="9_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://chuwrg3kipk04" path="res://audio/map.mp3" id="10_8t03j"]
+[ext_resource type="AudioStream" uid="uid://rgbmqn8cgd5" path="res://audio/pickupitem.mp3" id="11_2ieo8"]
+[ext_resource type="AudioStream" uid="uid://b6vp80ciw4bf" path="res://audio/new_glitch.mp3" id="12_kb6p2"]
+[ext_resource type="Script" uid="uid://m2km6ihtbht" path="res://player/audio_no3d.gd" id="13_32hag"]
+[ext_resource type="AudioStream" uid="uid://boxw7gnl0yx67" path="res://audio/new_glitch_reset.mp3" id="14_32hag"]
+[ext_resource type="Script" uid="uid://3p0r68iq07f3" path="res://player/dialouge.gd" id="15_32hag"]
+[ext_resource type="AudioStream" uid="uid://cl7irye8bn7hr" path="res://audio/door_op.mp3" id="15_tqiix"]
+[ext_resource type="PackedScene" uid="uid://bmef1ngpdmxbl" path="res://player/radio.tscn" id="15_wodsf"]
+[ext_resource type="AudioStream" uid="uid://cfr0vqpphwo36" path="res://audio/radio/First_met.mp3" id="18_e7oew"]
+[ext_resource type="AudioStream" uid="uid://cju0tqycnshjf" path="res://audio/radio/Junction.mp3" id="19_2uvqg"]
+[ext_resource type="AudioStream" uid="uid://cejy1yjxhypqq" path="res://audio/radio/Storage.mp3" id="20_1s1yo"]
+[ext_resource type="AudioStream" uid="uid://bo68frlle60w3" path="res://audio/radio/In_s_1.mp3" id="21_5ejfk"]
+[ext_resource type="AudioStream" uid="uid://d1h8xf7ew1qch" path="res://audio/radio/In_s_2.mp3" id="22_jd2rm"]
+[ext_resource type="AudioStream" uid="uid://bndv3ycg3wjpt" path="res://audio/radio/In_s_3.mp3" id="23_q28gw"]
+[ext_resource type="AudioStream" uid="uid://bec62vil03ueh" path="res://audio/radio/In_s_4.mp3" id="24_ge24q"]
+[ext_resource type="AudioStream" uid="uid://btb31s8shalug" path="res://audio/radio/After_gen.mp3" id="25_pnw6m"]
+[ext_resource type="AudioStream" uid="uid://c5yyo6teiv86c" path="res://audio/radio/Kitchen.mp3" id="26_1so5t"]
+[ext_resource type="AudioStream" uid="uid://dn3r5328wmrmy" path="res://audio/radio/Go for it man.mp3" id="27_55jnj"]
+[ext_resource type="AudioStream" uid="uid://bey7j6cf2i1ug" path="res://audio/radio/Research.mp3" id="28_dx5ib"]
+[ext_resource type="AudioStream" uid="uid://deuvxqtf7bk5d" path="res://audio/radio/Extend.mp3" id="29_a2xo5"]
+[ext_resource type="AudioStream" uid="uid://b42mge5mj3og2" path="res://audio/radio/End_re.mp3" id="30_1s1yo"]
+[ext_resource type="AudioStream" uid="uid://psu5w87eul88" path="res://audio/radio/generic.mp3" id="31_fjxoa"]
+[ext_resource type="AudioStream" uid="uid://df7wcxe1dd2ms" path="res://audio/radio/fail_puzzle.mp3" id="32_1s1yo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkbax"]
+shader = ExtResource("2_rkbax")
+shader_parameter/shake = 0.0
+shader_parameter/noiseQuality = 4.90000007301588
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0045
+shader_parameter/colorOffsetIntensity = 0.10000000149012
+shader_parameter/pixelSize = 600.0000284525
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(0.83975405, 0.8397541, 0.8397539, 1)
+shader_parameter/lens_distortion_strength = 0.010000000475
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjkh3"]
+shader = ExtResource("2_rkbax")
+shader_parameter/shake = 0.5850000277875
+shader_parameter/noiseQuality = 155.80000232160697
+shader_parameter/noiseIntensity = 0.03600000171
+shader_parameter/offsetIntensity = 0.00249999993674999
+shader_parameter/colorOffsetIntensity = 0.79400003445512
+shader_parameter/pixelSize = 600.0000284525
+shader_parameter/grainIntensity = 0.3050000144875
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(0.83975405, 0.8397541, 0.8397539, 1)
+shader_parameter/lens_distortion_strength = 0.050000002375
+
+[sub_resource type="Gradient" id="Gradient_tqiix"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1s1yo"]
+gradient = SubResource("Gradient_tqiix")
+
+[sub_resource type="Gradient" id="Gradient_5ejfk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6k8r"]
+gradient = SubResource("Gradient_5ejfk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6k8r"]
+font = ExtResource("5_qjkh3")
+font_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kb6p2"]
+font = ExtResource("5_qjkh3")
+font_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqu6x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
+radius = 0.49853516
+
+[node name="player" type="CharacterBody3D" unique_id=355675595 groups=["player"]]
+script = ExtResource("1_rkbax")
+speed = 3.0
+max = 7.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1920086892]
+material = SubResource("ShaderMaterial_rkbax")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="glitch" type="ColorRect" parent="." unique_id=2077489220]
+visible = false
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_qjkh3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="dark" type="TextureRect" parent="." unique_id=232902195]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1163.0
+offset_bottom = 653.0
+texture = SubResource("GradientTexture1D_1s1yo")
+
+[node name="white" type="TextureRect" parent="." unique_id=2003905013]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1163.0
+offset_bottom = 653.0
+texture = SubResource("GradientTexture1D_g6k8r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1102264458]
+modulate = Color(1, 1, 1, 0.4862745)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g1dw6")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1224881398]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.75
+offset_top = -3.75
+offset_right = 3.75
+offset_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yw30f")
+
+[node name="click" type="Label" parent="." unique_id=465458732]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -542.0
+offset_top = -241.0
+offset_right = 538.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "des"
+label_settings = SubResource("LabelSettings_g6k8r")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="sub" type="Label" parent="." unique_id=366012216]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -521.0
+offset_top = -102.0
+offset_right = 523.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "sub"
+label_settings = SubResource("LabelSettings_kb6p2")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=740483486]
+mesh = SubResource("CapsuleMesh_kqu6x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1938830152]
+shape = SubResource("CapsuleShape3D_oul6g")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=511352470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48387665, -0.41556042)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=628321690]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.012387574)
+target_position = Vector3(0, -1.45, 0)
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(0.7996534, 0.38065308, 0, 1)
+debug_shape_thickness = 5
+
+[node name="flashlight" type="SpotLight3D" parent="Camera3D" unique_id=2129236563]
+unique_name_in_owner = true
+light_color = Color(0.60284287, 0.602843, 0.60284287, 1)
+light_size = 1.0
+spot_range = 8.0
+spot_angle = 47.48435
+
+[node name="footstepw" type="AudioStreamPlayer3D" parent="." unique_id=243941074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99371755, -0.11323345)
+stream = ExtResource("6_boad6")
+volume_db = -23.0
+bus = &"footstep"
+script = ExtResource("7_boad6")
+
+[node name="footstepr" type="AudioStreamPlayer3D" parent="." unique_id=379715407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99371755, -0.11323345)
+stream = ExtResource("8_rgyib")
+volume_db = -30.0
+bus = &"footstep"
+script = ExtResource("7_boad6")
+
+[node name="flashlight_tog" type="AudioStreamPlayer" parent="." unique_id=1555418723]
+stream = ExtResource("9_hg6s5")
+volume_db = -10.0
+
+[node name="map_look" type="AudioStreamPlayer" parent="." unique_id=2127880128]
+stream = ExtResource("10_8t03j")
+volume_db = -15.0
+
+[node name="pickup" type="AudioStreamPlayer" parent="." unique_id=1067259312]
+stream = ExtResource("11_2ieo8")
+volume_db = -6.0
+
+[node name="glitch1" type="AudioStreamPlayer" parent="." unique_id=276893975]
+stream = ExtResource("12_kb6p2")
+volume_db = 4.0
+script = ExtResource("13_32hag")
+
+[node name="glitch_reset" type="AudioStreamPlayer" parent="." unique_id=1887962033]
+stream = ExtResource("14_32hag")
+volume_db = -21.0
+script = ExtResource("13_32hag")
+
+[node name="windoor" type="AudioStreamPlayer" parent="." unique_id=573409930]
+stream = ExtResource("15_tqiix")
+volume_db = -9.0
+script = ExtResource("13_32hag")
+
+[node name="Dialouge" type="Node" parent="." unique_id=961925396]
+script = ExtResource("15_32hag")
+
+[node name="First_met" parent="Dialouge" unique_id=1710809505 instance=ExtResource("15_wodsf")]
+stream = ExtResource("18_e7oew")
+volume_db = -12.0
+what = "First_met"
+tran = "Hello, we receive a ping. Which probably meant there still someone stuck inside. My name is Devlin, Current date 7 March 2030. If you experience light out, nausea, or place being different than how you remember them, Good. That's normal. You'll need to activate the Main generator and get the master keycard to open the exit door. Follow my instructions and you'll be out in no times, just.. don't wander to anywhere not in your \"Present\"."
+
+[node name="Juction" parent="Dialouge" unique_id=497355268 instance=ExtResource("15_wodsf")]
+stream = ExtResource("19_2uvqg")
+volume_db = -12.0
+what = "Junction"
+tran = "The generator's located past the storage room. Turn left after the dining hall, then left again. Ping me back once you're at storage."
+
+[node name="Storage" parent="Dialouge" unique_id=2055791070 instance=ExtResource("15_wodsf")]
+stream = ExtResource("20_1s1yo")
+volume_db = -12.0
+what = "Storage"
+tran = "You're at storage? I'll guide you to the generator room. If I go too fast, ping me and I'll repeat it."
+
+[node name="IN1" parent="Dialouge" unique_id=746642215 instance=ExtResource("15_wodsf")]
+stream = ExtResource("21_5ejfk")
+volume_db = -12.0
+what = "In_s_1"
+tran = "Turn right, when you see a shelf with blue box."
+
+[node name="IN2" parent="Dialouge" unique_id=233386424 instance=ExtResource("15_wodsf")]
+stream = ExtResource("22_jd2rm")
+volume_db = -12.0
+what = "In_s_2"
+tran = "Turn left at the white box."
+
+[node name="IN3" parent="Dialouge" unique_id=1076671920 instance=ExtResource("15_wodsf")]
+stream = ExtResource("23_q28gw")
+volume_db = -12.0
+what = "In_s_3"
+tran = "The generator is left from you, go left if you can. Stick close to the shelves so you don't get lose."
+
+[node name="IN4" parent="Dialouge" unique_id=1250577337 instance=ExtResource("15_wodsf")]
+stream = ExtResource("24_ge24q")
+volume_db = -12.0
+what = "In_s_4"
+tran = "Almost there. the generator's on the same aisle as a shelf with a red box. Wait, wait — I meant the pink one."
+
+[node name="After" parent="Dialouge" unique_id=290053353 instance=ExtResource("15_wodsf")]
+stream = ExtResource("25_pnw6m")
+volume_db = -12.0
+what = "After_gen"
+tran = "Power on? If so then go straight to research. It's right ahead of you after you exit the storage."
+
+[node name="Kitchen" parent="Dialouge" unique_id=202075537 instance=ExtResource("15_wodsf")]
+stream = ExtResource("26_1so5t")
+volume_db = -12.0
+what = "Kitchen"
+tran = "We receive a ping. A ping? No wait, you send us the year?! Holy, this is godsend. Wait a moment I'll look up the station map from your year. Okay. To get to research you'll need to go past the dining room. There should be a wall blocking the way. If so, break it down. Those are just placeholder wall from future waiting on repair."
+
+[node name="Gofor" parent="Dialouge" unique_id=685371474 instance=ExtResource("15_wodsf")]
+stream = ExtResource("27_55jnj")
+volume_db = -12.0
+what = "Go_for"
+tran = "Go for it, man."
+
+[node name="Research" parent="Dialouge" unique_id=1530870120 instance=ExtResource("15_wodsf")]
+stream = ExtResource("28_dx5ib")
+volume_db = -12.0
+what = "Research"
+tran = "An incident happened during one of our experiments. There shouldn't have been a rupture, since we only simulated it on a computer. But the effect was so strong it tangled past and future together. If a person enters somewhere that isn't from their own time, reality will erases them."
+
+[node name="Extend" parent="Dialouge" unique_id=2074209985 instance=ExtResource("15_wodsf")]
+stream = ExtResource("29_a2xo5")
+volume_db = -12.0
+what = "Extend"
+tran = "So, sorry for almost got you killed. I owe you a drink. In the future. Literally."
+
+[node name="End" parent="Dialouge" unique_id=139674114 instance=ExtResource("15_wodsf")]
+stream = ExtResource("30_1s1yo")
+volume_db = -9.0
+what = "End"
+tran = "You're out. Signal's fading on my end. Nice work in there. I guess.. Good luck then."
+
+[node name="generic" parent="Dialouge" unique_id=980192366 instance=ExtResource("15_wodsf")]
+stream = ExtResource("31_fjxoa")
+volume_db = -12.0
+what = "generic"
+tran = "Ping received. Is there a danger?"
+
+[node name="fail" parent="Dialouge" unique_id=102727651 instance=ExtResource("15_wodsf")]
+stream = ExtResource("32_1s1yo")
+volume_db = -12.0
+what = "fail"
+tran = "we recived a ping? try sending me something that might help pinpoint your time period."
+
+[connection signal="finished" from="windoor" to="." method="_on_windoor_finished"]
+[connection signal="radio_done" from="Dialouge" to="." method="_on_dialouge_radio_done"]

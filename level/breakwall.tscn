@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cnmq2oel2jjg4"]
+
+[ext_resource type="Script" uid="uid://c4te6b2ofc205" path="res://level/breakwall.gd" id="1_bofoj"]
+[ext_resource type="Material" uid="uid://dyc5i2p6bn7i3" path="res://level/mat/storagewall.tres" id="2_5oh5o"]
+[ext_resource type="PackedScene" uid="uid://c2q67n748srpw" path="res://item/doorAr.tscn" id="4_xidc5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g5dpl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dokjm"]
+
+[node name="wall" type="Node3D" unique_id=307182734]
+script = ExtResource("1_bofoj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1876603954]
+transform = Transform3D(1.565, 0, 0, 0, 3.015, 0, 0, 0, 0.255, -4.7683716e-07, 1.4603151, 0.061272025)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=882786521]
+material_override = ExtResource("2_5oh5o")
+mesh = SubResource("BoxMesh_g5dpl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=682165190]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, -9.1552734e-05, 0, -0.00024414063)
+shape = SubResource("BoxShape3D_dokjm")
+
+[node name="doorAR" parent="." unique_id=2003009684 instance=ExtResource("4_xidc5")]
+transform = Transform3D(1.675, 0, 0, 0, 3.14, 0, 0, 0, 0.605, 0, 1.4112887, 0.060661316)
+enable = true
+des = "Break"
+
+[connection signal="open" from="doorAR" to="." method="_on_door_ar_open"]

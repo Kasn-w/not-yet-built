@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://4arb8jveyxrv"]
+
+[ext_resource type="Material" uid="uid://m3nsa57iagh3" path="res://level/mat/officewall2.tres" id="1_iceqq"]
+[ext_resource type="Script" uid="uid://datuyhy06wirm" path="res://level/doorREAL.gd" id="1_y7ruw"]
+[ext_resource type="PackedScene" uid="uid://c2q67n748srpw" path="res://item/doorAr.tscn" id="2_lwjuq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g5dpl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5dpl"]
+albedo_color = Color(0.68804306, 0.68804306, 0.688043, 1)
+metallic = 0.27
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_kdia8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dokjm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dokjm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5dpl"]
+size = Vector3(0.06640625, 0.14770508, 2.1132813)
+
+[node name="dooroff" type="Node3D" unique_id=307182734]
+script = ExtResource("1_y7ruw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1876603954]
+transform = Transform3D(1.565, 0, 0, 0, 3.015, 0, 0, 0, 0.255, -4.7683716e-07, 1.4603151, 0.061272025)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=882786521]
+material_override = ExtResource("1_iceqq")
+mesh = SubResource("BoxMesh_g5dpl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=671342358]
+transform = Transform3D(0.9549999, 0, 0, 0, 0.195, 0, 0, 0, 1.085, 0, -0.4110942, 0)
+material_override = SubResource("StandardMaterial3D_g5dpl")
+mesh = SubResource("BoxMesh_kdia8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=1161943299]
+transform = Transform3D(0.054999996, 0, 0, 0, 0.13999999, 0, 0, 0, 2.045, -0.3478277, -0.035983354, 0)
+mesh = SubResource("BoxMesh_dokjm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=682165190]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, -9.1552734e-05, 0, -0.00024414063)
+shape = SubResource("BoxShape3D_dokjm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1404566304]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, -0.34863272, -0.037963867, -0.000976488)
+shape = SubResource("BoxShape3D_g5dpl")
+
+[node name="doorAR" parent="." unique_id=2003009684 instance=ExtResource("2_lwjuq")]
+transform = Transform3D(1.675, 0, 0, 0, 3.14, 0, 0, 0, 0.605, 0, 1.4112887, 0.060661316)
+des = "Locked"

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bup8yoh37ae3l"]
+
+[ext_resource type="Texture2D" uid="uid://clabjnulpnjfd" path="res://level/texture/abstract-gray-splatter-dirty-grunge-texture-background_1035-22883.png" id="1_el6ik"]
+[ext_resource type="Texture2D" uid="uid://dmy81n5dfv6vf" path="res://level/texture/1k_Dissolve_Noise_Texture.png" id="1_qkvrb"]
+
+[resource]
+albedo_color = Color(0.78048027, 0.76171887, 0.7440479, 1)
+albedo_texture = ExtResource("1_el6ik")
+metallic_specular = 0.2
+normal_enabled = true
+normal_scale = 0.05
+normal_texture = ExtResource("1_qkvrb")
+uv1_scale = Vector3(11.805, 11.805, 11.805)
+uv1_triplanar = true

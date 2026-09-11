@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6rew1gxs2uvw"]
+
+[ext_resource type="Texture2D" uid="uid://dmy81n5dfv6vf" path="res://level/texture/1k_Dissolve_Noise_Texture.png" id="1_rkj4m"]
+
+[resource]
+albedo_color = Color(0.89805394, 0.99999994, 0.99964553, 1)
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("1_rkj4m")
+uv1_scale = Vector3(2.92, 2.92, 2.92)
+uv1_triplanar = true

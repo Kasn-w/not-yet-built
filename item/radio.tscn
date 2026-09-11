@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bu8wpyth5q7oy"]
+
+[ext_resource type="Script" uid="uid://dwf67dusy62l0" path="res://item/itemmesh.gd" id="1_480lm"]
+[ext_resource type="Material" uid="uid://cgs6yyfqhvbmx" path="res://level/mat/flashlight.tres" id="2_5ai7e"]
+[ext_resource type="PackedScene" uid="uid://b1eoyy33bygwl" path="res://item/item.tscn" id="5_ah7gk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41fy4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5rix"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10tek"]
+albedo_color = Color(0.2065543, 0.2065543, 0.20655426, 1)
+metallic_specular = 0.31
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_480lm"]
+shading_mode = 0
+albedo_color = Color(0, 0.85469455, 0.17111719, 1)
+
+[node name="radio" type="Node3D" unique_id=129609368]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_480lm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=150371591]
+transform = Transform3D(-0.02, -3.019916e-08, 0, 3.0199159e-09, -0.2, 0, 0, 0, 0.02, 0.0016869456, 0.10005367, 0.03977494)
+material_override = ExtResource("2_5ai7e")
+mesh = SubResource("CylinderMesh_41fy4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1213880870]
+transform = Transform3D(-0.03, -6.0398317e-09, 0, 4.529874e-09, -0.04, 0, 0, 0, 0.03, 0.0016869456, 0.3165321, 0.03977494)
+material_override = ExtResource("2_5ai7e")
+mesh = SubResource("CylinderMesh_41fy4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=883617388]
+transform = Transform3D(0.08, 0, 0, 0, 0.235, 0, 0, 0, 0.145, 0, 0, 0)
+material_override = ExtResource("2_5ai7e")
+mesh = SubResource("BoxMesh_w5rix")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=713415036]
+transform = Transform3D(0.08, 0, 0, 0, 0.085, 0, 0, 0, 0.055, 0.008338496, -0.041325524, 0.02083382)
+material_override = SubResource("StandardMaterial3D_10tek")
+mesh = SubResource("BoxMesh_w5rix")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2042989964]
+transform = Transform3D(0.05, 0, 0, 0, 0.06, 0, 0, 0, 0.12, 0.027855396, 0.0665265, 0)
+material_override = SubResource("StandardMaterial3D_480lm")
+mesh = SubResource("BoxMesh_w5rix")
+
+[node name="flashlight" type="SpotLight3D" parent="." unique_id=932672883]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.038123995, 0.066458255, -0.06853008)
+light_color = Color(0.20295158, 0.6445651, 9.62615e-07, 1)
+light_energy = 4.0
+light_size = 1.0
+spot_range = 5.463228
+spot_angle = 48.905895
+
+[node name="item" parent="." unique_id=2003009684 instance=ExtResource("5_ah7gk")]
+transform = Transform3D(0.28, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 0.19031632, 0.1058378, 0)
+nam = "Walkie-talkie"
+des = "Once used to communicate between rooms. Somehow now also communicates across time. This older model can't send a signal past a single ping back.\\nRight click to ping"
+pic = "res://item/radio.png"

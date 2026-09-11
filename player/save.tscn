@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dpyif8qwxdiu2"]
+
+[ext_resource type="Script" uid="uid://dta5ibagc317v" path="res://save.gd" id="1_o5jfm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lv6t8"]
+
+[node name="save" type="Marker3D" unique_id=2125153339]
+script = ExtResource("1_o5jfm")
+
+[node name="savePoint" type="Area3D" parent="." unique_id=422853539]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="savePoint" unique_id=1889021146]
+shape = SubResource("BoxShape3D_lv6t8")
+debug_color = Color(0.5935248, 0.4938215, 0, 1)
+
+[connection signal="body_entered" from="savePoint" to="." method="_on_save_point_body_entered"]
+[connection signal="body_exited" from="savePoint" to="." method="_on_save_point_body_exited"]

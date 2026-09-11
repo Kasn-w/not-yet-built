@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://vya7o1lbc2u2"]
+
+[ext_resource type="Script" uid="uid://dmbnuy53f7mrr" path="res://level/lightbulb.gd" id="1_omw1b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i22u"]
+albedo_color = Color(0.7777102, 0.48674852, 0, 1)
+grow_amount = -0.455
+
+[sub_resource type="SphereMesh" id="SphereMesh_omw1b"]
+material = SubResource("StandardMaterial3D_8i22u")
+
+[node name="lightbulb" type="Node3D" unique_id=1866055829]
+script = ExtResource("1_omw1b")
+
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=1233555166]
+mesh = SubResource("SphereMesh_omw1b")
+
+[node name="light" type="OmniLight3D" parent="." unique_id=27585320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.69038534, 0)
+light_color = Color(0.8037653, 0.50369936, 0, 1)
+light_energy = 0.3
+omni_range = 5.361106
+
+[node name="Timer" type="Timer" parent="." unique_id=151820748]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

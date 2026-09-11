@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvmwa12wirfhy"]
+
+[ext_resource type="Script" uid="uid://dxjjxb1txktj4" path="res://level/radio_activate.gd" id="1_q38vc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmga8"]
+
+[node name="radio_zone" type="Area3D" unique_id=852627925]
+script = ExtResource("1_q38vc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1939525749]
+shape = SubResource("BoxShape3D_xmga8")
+debug_color = Color(16.746927, 0.18036273, 15.606274, 1)

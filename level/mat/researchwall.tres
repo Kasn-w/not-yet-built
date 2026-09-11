@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dg6uikr2ahe1a"]
+
+[ext_resource type="Texture2D" uid="uid://dmy81n5dfv6vf" path="res://level/texture/1k_Dissolve_Noise_Texture.png" id="1_fbmsr"]
+
+[resource]
+albedo_color = Color(0.9143643, 0.81769925, 0.7308852, 1)
+normal_enabled = true
+normal_scale = 0.03
+normal_texture = ExtResource("1_fbmsr")
